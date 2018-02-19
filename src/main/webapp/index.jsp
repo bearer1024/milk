@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索首页</title>
+    <title>搜索</title>
 
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -32,6 +32,13 @@
             width: 500px;
             height: 220px;
             margin: 100px auto;
+        }
+        #naifen {
+            width: 250px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 40px;
+            color: #FF6666
         }
         div.search {padding: 30px 0;}
 
@@ -82,13 +89,16 @@
     </style>
 </head>
 <body>
+<div id="naifen">奶粉数据网</div>
 <div id="container">
+
     <div class="search bar1">
         <form>
-            <input type="text" placeholder="请输入您要搜索的内容...">
+            <input type="text" placeholder="查询奶粉资质，新闻等...">
             <button type="submit"></button>
         </form>
     </div>
 </div>
 </body>
 </html>
+
