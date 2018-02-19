@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elgin.dao.RegistCertificateDao">
+    
+    
+    <!-- 新增一条记录 -->
+    <insert id="add" parameterType="RegistCertificate">
+      insert into register_certificate(application_number,product_name,powder_level,applicant_name,publish_certificate_time)
+      values(#{applicationNumber},#{productName},#{powderLevel},#{applicantName},#{publishCertificateTime})
+    </insert>
+    
+    <!-- 删除一条记录 -->
+    <delete id="delete" parameterType="Integer">
+      delete from t_user where id = #{id}
+    </delete>
+    
+    <!-- 更新一条记录的数据 -->
+    <update id="update" parameterType="RegistCertificate">
+      update t_user set username=#{username},password=#{password},email=#{email},phone=#{phone} where id=#{id}
+    </update>
+    
+    <!-- 查询单条记录 -->
+    <select id="get" parameterType="Integer" resultType="RegistCertificate">
+        SELECT * FROM t_user WHERE id = #{id}
+    </select>
+    
+    <!-- 查询多条记录 -->
+    <select id="getList" resultType="RegistCertificate">
+       select * from t_user
+    </select>
+
+</mapper>
