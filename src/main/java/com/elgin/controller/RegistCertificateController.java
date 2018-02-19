@@ -28,6 +28,7 @@ public class RegistCertificateController {
 	@RequestMapping("add")
 	public String addPage(RegistCertificate registCertificate) {
 		logger.info("add page...");
+		registCertificate.setPublishCertificateTime(registCertificate.getPublishCertificateTime().replace("T"," "));
 		registCertificateService.add(registCertificate);
 		return "test";
 	}

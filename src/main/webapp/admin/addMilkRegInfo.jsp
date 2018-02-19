@@ -155,32 +155,32 @@
                                         <div class="control-group">
                                           <label class="control-label">受理编号</label>
                                           <div class="controls">
-                                            <input class="input-xlarge focused" name="applicationNumber" type="text" value="奶粉受理编号">
+                                            <input class="input-xlarge focused" name="applicationNumber" type="text">
                                           </div>
                                         </div>
                                           <div class="control-group">
                                               <label class="control-label">产品名称</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="productName" type="text" value="产品名称">
+                                                  <input class="input-xlarge focused" name="productName" type="text">
                                               </div>
                                           </div>
 
                                           <div class="control-group">
                                               <label class="control-label">奶粉段位</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="powderLevel" type="text" value="奶粉段位">
+                                                  <input class="input-xlarge focused" name="powderLevel" type="number">
                                               </div>
                                           </div>
                                           <div class="control-group">
                                               <label class="control-label">申请人姓名</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="applicantName" type="text" value="申请人姓名">
+                                                  <input class="input-xlarge focused" name="applicantName" type="text">
                                               </div>
                                           </div>
                                           <div class="control-group">
                                               <label class="control-label">公布证书待领信息的时间</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="publishCertificateTime" type="text" value="公布证书待领信息的时间">
+                                                  <input class="input-xlarge focused" name="publishCertificateTime" type="datetime-local">
                                               </div>
                                           </div>
 
