@@ -21,4 +21,9 @@ public class RegistCertificateService {
         return result;
 	}
 
+	public List<RegistCertificate> search(String keyword) {
+		List<RegistCertificate> list = registCertificateDao.getListByKeyWord(keyword);
+
+		return list;
+	}
 }

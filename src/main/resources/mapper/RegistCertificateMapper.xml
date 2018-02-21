@@ -26,8 +26,8 @@
     </select>
     
     <!-- 查询多条记录 -->
-    <select id="getList" resultType="RegistCertificate">
-       select * from t_user
+    <select id="getListByKeyWord" resultType="RegistCertificate" parameterType="String">
+       select * from register_certificate WHERE product_name LIKE concat("%",#{keyword},"%")
     </select>
 
 </mapper>

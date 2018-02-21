@@ -8,11 +8,11 @@ import java.util.Date;
  */
 public class RegistCertificate {
     private Integer id;
-    private String applicationNumber;
-    private String productName;
-    private String powderLevel;
-    private String applicantName;
-    private String publishCertificateTime;
+    private String application_number;
+    private String product_name;
+    private String powder_level;
+    private String applicant_name;
+    private String publish_certificate_time;
 
     public Integer getId() {
         return id;
@@ -22,43 +22,43 @@ public class RegistCertificate {
         this.id = id;
     }
 
-    public String getApplicationNumber() {
-        return applicationNumber;
+    public String getApplication_number() {
+        return application_number;
     }
 
-    public void setApplicationNumber(String applicationNumber) {
-        this.applicationNumber = applicationNumber;
+    public void setApplication_number(String application_number) {
+        this.application_number = application_number;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
-    public String getPowderLevel() {
-        return powderLevel;
+    public String getPowder_level() {
+        return powder_level;
     }
 
-    public void setPowderLevel(String powderLevel) {
-        this.powderLevel = powderLevel;
+    public void setPowder_level(String powder_level) {
+        this.powder_level = powder_level;
     }
 
-    public String getApplicantName() {
-        return applicantName;
+    public String getApplicant_name() {
+        return applicant_name;
     }
 
-    public void setApplicantName(String applicantName) {
-        this.applicantName = applicantName;
+    public void setApplicant_name(String applicant_name) {
+        this.applicant_name = applicant_name;
     }
 
-    public String getPublishCertificateTime() {
-        return publishCertificateTime;
+    public String getPublish_certificate_time() {
+        return publish_certificate_time;
     }
 
-    public void setPublishCertificateTime(String publishCertificateTime) {
-        this.publishCertificateTime = publishCertificateTime;
+    public void setPublish_certificate_time(String publish_certificate_time) {
+        this.publish_certificate_time = publish_certificate_time;
     }
 }

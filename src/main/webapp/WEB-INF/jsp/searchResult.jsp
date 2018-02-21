@@ -33,12 +33,16 @@
 </head>
 <body>
 <div id="container">
-    搜索结果页面
-    <ul>
-        <li>123</li>
-        <li>2344</li>
-        <li>777</li>
-    </ul>
+    <p>搜索结果页面</p>
+    <table border="2px" width="800" >
+    <c:forEach items="${resultList}" var="ss">
+        <tr>
+            <td>${ss.id}</td>
+            <td>${ss.application_number}</td>
+            <td>${ss.product_name}</td>
+        </tr>
+    </c:forEach>
+    </table>
 </div>
 </body>
 </html>

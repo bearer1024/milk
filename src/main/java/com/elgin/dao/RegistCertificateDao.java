@@ -18,5 +18,5 @@ public interface RegistCertificateDao {
 
     User get(Integer id);
 
-    List<RegistCertificate> getList();
+    List<RegistCertificate> getListByKeyWord(String keyword);
 }

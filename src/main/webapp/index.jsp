@@ -93,8 +93,8 @@
 <div id="container">
 
     <div class="search bar1">
-        <form>
-            <input type="text" placeholder="查询奶粉资质，新闻等...">
+        <form action="/api/search" method="post">
+            <input type="text" name="keyword" placeholder="查询奶粉资质，新闻等...">
             <button type="submit"></button>
         </form>
     </div>
