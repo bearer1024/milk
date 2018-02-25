@@ -1,48 +1,89 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>页面</title>
+    <title>搜索结果页面</title>
 
-    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
-            box-sizing: border-box;
+            padding:0;
+            margin:0;
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background: #FFF;
-            font-weight: 500;
-            font-family: "Microsoft YaHei","宋体","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif, FreeSans, Arimo;
+        .wrap {
+            width:300px;
+            margin:20px auto 0;
         }
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
 
-        #container {
-            width: 500px;
-            height: 220px;
-            margin: 100px auto;
+            width:300px;
         }
-
-        li {list-style-type:none;}
+        td {
+            background-color:#DDF0ED;
+            border-bottom:1px solid #d0d0d0;
+            color:#404060;
+            padding:10px;
+            font:14px "微软雅黑";
+        }
+        tbody tr {
+            background-color:#f0f0f0;
+        }
+        tbody tr:hover {
+            cursor:pointer;
+            background-color:#fafafa;
+        }
     </style>
 </head>
 <body>
-<div id="container">
-    <p>搜索结果页面</p>
-    <table border="2px" width="800" >
-    <c:forEach items="${resultList}" var="ss">
+<div class="wrap">
+    <table>
+        <tbody id="j_tb">
+        <c:forEach items="${resultList}" var="ss">
+            <tr>
+                <td>${ss.product_name}</td>
+            </tr>
+        </c:forEach>
         <tr>
-            <td>${ss.id}</td>
-            <td>${ss.application_number}</td>
-            <td>${ss.product_name}</td>
+            <td>红烧肉</td>
         </tr>
-    </c:forEach>
+        <tr>
+            <td>西红柿鸡蛋</td>
+        </tr>
+
+        </tbody>
     </table>
+</div>
+
+<script>
+    var all = document.getElementById("j_cbAll");
+    var tbody = document.getElementById("j_tb");
+    var checkboxs = tbody.getElementsByTagName("input");
+    all.onclick = function() {
+        for (var i = 0; i < checkboxs.length; i++) {
+            var checkbox = checkboxs[i];
+            checkbox.checked = this.checked;
+        }
+    };
+    for (var i = 0; i < checkboxs.length; i++) {
+        checkboxs[i].onclick = function() {
+            var isCheckedAll = true;
+            for (var i = 0; i < checkboxs.length; i++) {
+                if (!checkboxs[i].checked) {
+                    isCheckedAll = false;
+                    break;
+                }
+            }
+            all.checked = isCheckedAll;
+        };
+    }</script>
+<div style="text-align:center;">
+
 </div>
 </body>
 </html>
+
