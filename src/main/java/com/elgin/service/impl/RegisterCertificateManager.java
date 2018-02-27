@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("registCertificateService")
 public class RegisterCertificateManager implements IRegisterCertificateManager{
@@ -41,9 +42,9 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 		return list;
 	}
 
-	@Override
-	public Page selectListForPage(Map map, int pageNo, int pageSize){
-		Page page = registCertificateDao.queryCertificateForPage(pageNo,pageSize);
-		return page;
-	}
+//	@Override
+//	public Page selectListForPage(Map map, int pageNo, int pageSize){
+//		Page page = registCertificateDao.queryCertificateForPage(pageNo,pageSize);
+//		return page;
+//	}
 }
