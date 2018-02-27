@@ -6,10 +6,12 @@ import com.elgin.entities.RegistCertificate;
 import com.elgin.entities.User;
 import com.elgin.service.IRegisterCertificateManager;
 import com.elgin.service.UserService;
+import com.elgin.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("registCertificateService")
 public class RegisterCertificateManager implements IRegisterCertificateManager{
@@ -30,5 +32,9 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 		return list;
 	}
 
-
+	@Override
+	public Page selectListForPage(Map map, int pageNo, int pageSize){
+		Page page = registCertificateDao.queryCertificateForPage(pageNo,pageSize);
+		return page;
+	}
 }

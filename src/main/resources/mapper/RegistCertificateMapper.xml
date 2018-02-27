@@ -30,4 +30,8 @@
        select * from register_certificate WHERE product_name LIKE concat("%",#{keyword},"%")
     </select>
 
+    <!-- query current page's certification info-->
+    <select id="queryCertificateForPage" resultType="Page" parameterType="Integer,Integer">
+        select * from register_certificate 
+    </select>
 </mapper>
