@@ -9,8 +9,11 @@ import com.elgin.utils.Page;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("admin/registCertificate/")
@@ -36,10 +39,10 @@ public class RegistCertificateController {
 	}
 
 	@RequestMapping("list-register")
-	public ModelAndView list(){
-	    ModelAndView view = new ModelAndView();
-	    view.setViewName("list-register");
-	    return view;
+	public String list(int currentPageNo, ModelMap mm){
+        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(currentPageNo);
+        mm.put("list", registCertificates);
+        return "/list-register";
     }
 
     @RequestMapping("list-register-json")

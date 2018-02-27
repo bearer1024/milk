@@ -9,4 +9,7 @@ public interface IRegisterCertificateManager {
     int add(RegistCertificate registCertificate);
 
     List<RegistCertificate> search(String keyword);
+
+    List<RegistCertificate> selectList(int currentPageNo);
+
 }

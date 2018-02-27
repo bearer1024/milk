@@ -6,6 +6,7 @@ import com.elgin.entities.RegistCertificate;
 import com.elgin.entities.User;
 import com.elgin.service.IRegisterCertificateManager;
 import com.elgin.service.UserService;
+import com.elgin.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,16 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 	@Override
 	public List<RegistCertificate> search(String keyword) {
 		List<RegistCertificate> list = registCertificateDao.getListByKeyWord(keyword);
+
+		return list;
+	}
+
+	@Override
+	public List<RegistCertificate> selectList(int currentPageNo) {
+		int count = registCertificateDao.count();
+
+		Page page = new Page(currentPageNo, count, 20);
+		List<RegistCertificate> list = registCertificateDao.getList(page);
 
 		return list;
 	}

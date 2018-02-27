@@ -19,7 +19,6 @@ public class GridJsonResult {
         this.draw = Long.parseLong(draws);
         this.recordsFiltered= page.getTotalCount();
         this.recordsTotal= page.getTotalCount();
-        this.data= (List)page.getResult();
     }
 
     /**

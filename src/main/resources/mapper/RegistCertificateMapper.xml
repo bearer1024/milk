@@ -30,4 +30,15 @@
        select * from register_certificate WHERE product_name LIKE concat("%",#{keyword},"%")
     </select>
 
+    <!-- 查询list -->
+    <select id="getList" resultType="RegistCertificate" parameterType="com.elgin.utils.Page">
+        select * from register_certificate WHERE product_name limit #{start},#{pageSize}
+    </select>
+
+    <!-- count -->
+    <select id="count" resultType="Integer">
+        select count(*) from register_certificate
+    </select>
+
+
 </mapper>

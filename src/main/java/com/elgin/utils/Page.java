@@ -13,19 +13,16 @@ public class Page  implements Serializable {
 
 	private int pageSize = DEFAULT_PAGE_SIZE; // 每页的记录数
 
- 
-	private Object data; // 当前页中存放的记录,类型一般为List
 
-	private long totalCount; // 总记录数
-	private long  currentPageNo=1;
-	
-	private long draw;	//datatables 所需要的参数
-	
+	private int  totalCount; // 总记录数
+	private int  currentPageNo=1;
+	private int start;
+
 	/**
 	 * 构造方法，只构造空页.
 	 */
 	public Page() {
-		this(0, 0, DEFAULT_PAGE_SIZE, new ArrayList());
+		this(0, 0, DEFAULT_PAGE_SIZE);
 	}
 
 	/**
@@ -37,31 +34,37 @@ public class Page  implements Serializable {
 	 *            数据库中总记录条数
 	 * @param pageSize
 	 *            本页容量
-	 * @param data
-	 *            本页包含的数据
 	 */
-	public Page(long currentPageNo, long totalSize, int pageSize, Object data) {
-		setParam(currentPageNo, totalSize, pageSize, data);
+	public Page(int currentPageNo, int totalSize, int pageSize) {
+		setParam(currentPageNo, totalSize, pageSize);
 	}
 
-	public void setParam(long currentPageNo, long totalSize, int pageSize, Object data) {
+	public void setParam(int currentPageNo, int totalSize, int pageSize) {
 		this.pageSize = pageSize;
 		this.currentPageNo = currentPageNo;
 		this.totalCount = totalSize;
-		this.data = data;
+		this.start = (currentPageNo - 1) * pageSize;
+	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
 	}
 
 	/**
 	 * 取总记录数.
 	 */
-	public long getTotalCount() {
+	public int getTotalCount() {
 		return this.totalCount;
 	}
 
 	/**
 	 * 取总页数.
 	 */
-	public long getTotalPageCount() {
+	public int getTotalPageCount() {
 		if (totalCount % pageSize == 0)
 			return totalCount / pageSize;
 		else
@@ -76,16 +79,9 @@ public class Page  implements Serializable {
 	}
 
 	/**
-	 * 取当前页中的记录.
-	 */
-	public Object getResult() {
-		return data;
-	}
-
-	/**
 	 * 取该页当前页码,页码从1开始.
 	 */
-	public long getCurrentPageNo() {
+	public int getCurrentPageNo() {
 		return this.currentPageNo;
 	}
 
@@ -103,17 +99,9 @@ public class Page  implements Serializable {
 		return this.getCurrentPageNo() > 1;
 	}
  
-	public void setCurrentPageNo(long pageNo){
+	public void setCurrentPageNo(int pageNo){
 		this.currentPageNo = pageNo;
 	}
 
-	public long getDraw() {
-		return draw;
-	}
-
-	public void setDraw(long draw) {
-		this.draw = draw;
-	}
-	
 	
 }
