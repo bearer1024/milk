@@ -44,13 +44,24 @@
     <table>
         <tbody id="j_tb">
         <tr>
-            <td>根据产品名称查询结果：</td>
+            <td>产品详情：</td>
         </tr>
-        <c:forEach items="${resultList}" var="ss">
-            <tr>
-                <td>产品名称：<a href="/api/productDetail?id=${ss.id}">${ss.product_name}</a></td>
-            </tr>
-        </c:forEach>
+
+        <tr>
+            <td>产品名称：${result.product_name}</td>
+        </tr>
+        <tr>
+            <td>受理编号：${result.application_number}</td>
+        </tr>
+        <tr>
+            <td>奶粉段位：${result.powder_level}</td>
+        </tr>
+        <tr>
+            <td>申请人名称：${result.applicant_name}</td>
+        </tr>
+        <tr>
+            <td>公布证书待领信息的时间：${result.publish_certificate_time}</td>
+        </tr>
         </tbody>
     </table>
 </div>

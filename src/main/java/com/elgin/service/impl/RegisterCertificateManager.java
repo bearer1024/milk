@@ -42,9 +42,10 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 		return list;
 	}
 
-//	@Override
-//	public Page selectListForPage(Map map, int pageNo, int pageSize){
-//		Page page = registCertificateDao.queryCertificateForPage(pageNo,pageSize);
-//		return page;
-//	}
+	@Override
+	public RegistCertificate getDetailById(int id) {
+		return registCertificateDao.get(id);
+	}
+
+
 }

@@ -19,7 +19,7 @@ public interface RegistCertificateDao {
 
     int update(RegistCertificate registCertificate);
 
-    User get(Integer id);
+    RegistCertificate get(Integer id);
 
     List<RegistCertificate> getListByKeyWord(String keyword);
     List<RegistCertificate> getList(Page page);

@@ -12,4 +12,5 @@ public interface IRegisterCertificateManager {
 
     List<RegistCertificate> selectList(int currentPageNo);
 
+    RegistCertificate getDetailById(int id);
 }

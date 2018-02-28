@@ -22,7 +22,7 @@
     
     <!-- 查询单条记录 -->
     <select id="get" parameterType="Integer" resultType="RegistCertificate">
-        SELECT * FROM t_user WHERE id = #{id}
+        SELECT * FROM register_certificate WHERE id = #{id}
     </select>
     
     <!-- 查询多条记录 -->
@@ -32,7 +32,7 @@
 
     <!-- 查询list -->
     <select id="getList" resultType="RegistCertificate" parameterType="com.elgin.utils.Page">
-        select * from register_certificate WHERE product_name limit #{start},#{pageSize}
+        select * from register_certificate ORDER BY id limit #{start},#{pageSize}
     </select>
 
     <!-- count -->

@@ -24,12 +24,16 @@ public class SearchController {
 
 		List<RegistCertificate> resultList = registerCertificateManager.search(keyword);
 		mm.put("resultList", resultList);
-		for (RegistCertificate registCertificate : resultList) {
-			logger.info(registCertificate.getApplicant_name());
-		}
 		return "/searchResult";
 	}
 
+	@RequestMapping("productDetail")
+	public String productDetail(int id, ModelMap mm) {
 
+		RegistCertificate result = registerCertificateManager.getDetailById(id);
+		mm.put("result", result);
+
+		return "/certificateDetail";
+	}
 
 }
