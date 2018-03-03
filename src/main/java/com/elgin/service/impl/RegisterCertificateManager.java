@@ -38,10 +38,8 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 	}
 
 	@Override
-	public List<RegistCertificate> selectList(int currentPageNo) {
-		int count = registCertificateDao.count();
+	public List<RegistCertificate> selectList(Page page) {
 
-		Page page = new Page(currentPageNo, count, 20);
 		List<RegistCertificate> list = registCertificateDao.getList(page);
 
 		return list;
@@ -55,6 +53,11 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
     @Override
     public int delete(int id) {
         return registCertificateDao.delete(id);
+    }
+
+    @Override
+    public int count() {
+        return registCertificateDao.count();
     }
 
 

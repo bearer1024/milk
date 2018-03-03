@@ -1,6 +1,7 @@
 package com.elgin.service;
 
 import com.elgin.entities.RegistCertificate;
+import com.elgin.utils.Page;
 
 import java.util.List;
 
@@ -12,8 +13,10 @@ public interface IRegisterCertificateManager {
 
     List<RegistCertificate> search(String keyword);
 
-    List<RegistCertificate> selectList(int currentPageNo);
+    List<RegistCertificate> selectList(Page page);
 
     RegistCertificate getDetailById(int id);
     int delete(int id);
+
+    int count();
 }
