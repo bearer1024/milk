@@ -29,7 +29,7 @@
         </form>
     </div>
     <div class="search bar2">
-        <a href="#">最新获得资质企业</a>    <a href="#">奶粉行业新闻</a>
+        <a href="#">最新获得资质企业</a>    <a href="#">奶粉行业新闻</a>  <a href="#">投票排行</a>
     </div>
 </div>
     <div id="footer">
