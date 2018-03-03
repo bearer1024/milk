@@ -17,6 +17,8 @@
     <c:forEach items="${list}" var="ss">
         <tr>
             <td>${ss.product_name}</td>
+            <td><a href="/admin/registCertificate/edit-certificate?id=${ss.id}">编辑</a></td>
+            <td><a href="/admin/registCertificate/delete-certificate?id=${ss.id}">删除</a></td>
         </tr>
     </c:forEach>
 

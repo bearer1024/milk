@@ -135,6 +135,7 @@
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li class="active">
                             <a href="addMilkRegInfo.jsp"><i class="icon-chevron-right"></i>增加奶粉资质管理页面</a>
+                            <a href="editMilkRegInfo.jsp"><i class="icon-chevron-right"></i>编辑奶粉资质管理页面</a>
                         </li>
                     </ul>
                 </div>

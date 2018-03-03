@@ -39,7 +39,10 @@ public class RegistCertificateController {
 	}
 
 	@RequestMapping("list-register")
-	public String list(int currentPageNo, ModelMap mm){
+	public String list(Integer currentPageNo, ModelMap mm){
+	    if(currentPageNo==null){
+            currentPageNo = 1;
+        }
         List<RegistCertificate> registCertificates = registerCertificateManager.selectList(currentPageNo);
         mm.put("list", registCertificates);
         return "/list-register";
@@ -51,6 +54,13 @@ public class RegistCertificateController {
         //Page webPage = registerCertificateManager.
         Page webPage = new Page();//FIXME
         return JsonResultUtil.getGridJson(webPage);
+    }
+
+    @RequestMapping("edit-certificate")
+    public String editCertificate(int id, ModelMap mm){
+        RegistCertificate result = registerCertificateManager.getDetailById(id);
+        mm.put("result", result);
+        return "/editMilkRegInfo";
     }
 
 
