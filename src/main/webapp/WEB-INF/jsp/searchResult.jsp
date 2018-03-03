@@ -29,9 +29,12 @@
             padding:10px;
             font:14px "微软雅黑";
         }
+        td img {
+            float: left;
+        }
         tbody tr {
             background-color:#f0f0f0;
-            padding: 20px;
+            padding: 10px;
         }
         tbody tr:hover {
             cursor:pointer;
@@ -41,6 +44,15 @@
             font-size: 20px;
             color: red;
             padding: 10px;
+        }
+        .zizhimg {
+            width: 60px;
+            height: 60px;
+            padding-right: 20px;
+        }
+        li {
+            list-style-type: none;
+            padding: 5px;
         }
     </style>
 </head>
@@ -52,9 +64,13 @@
         </div>
         <tbody id="j_tb">
 
+        <c:if test="${empty resultList} == 0">
+            没有查到结果，请重新查询。
+        </c:if>
         <c:forEach items="${resultList}" var="ss">
             <tr>
-                <td><a href="/api/productDetail?id=${ss.id}">${ss.product_name} 认证通过的编码为 ${ss.application_number}</a></td>
+                <td><a href="/api/productDetail?id=${ss.id}"><img src="../../images/zizhi.png" class="zizhimg"><li>产品名称 ${ss.product_name}</li>
+                    <li>认证编码 ${ss.application_number}</li></a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -88,5 +104,7 @@
 </div>
 </body>
 </html>
+
+
 
 
