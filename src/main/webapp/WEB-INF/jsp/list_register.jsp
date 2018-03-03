@@ -18,6 +18,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../../vendors/jquery-1.9.1.js"></script>
     <style>
         * {
             padding:0;
@@ -48,6 +49,34 @@
             background-color:#fafafa;
         }
     </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var page=${currentPage};
+
+            $("#more").click(function(event){
+                if(page < ${totalPage}) {
+                    page++;
+                    window.location.href = "/admin/registCertificate/list-register?currentPageNo=" + page;
+                    return true;
+                } else {
+                    alert("已经是最后一页！！");
+                    return true;
+                }
+            });
+            $("#last").click(function(event){
+                if(page<=1){
+                    alert("已经是第一页了！");
+                    return true;
+                } else {
+                    page--;
+                    window.location.href = "/admin/registCertificate/list-register?currentPageNo=" + page;
+                    return true;
+                }
+            });
+
+
+        });
+    </script>
 </head>
 
 <div class="navbar navbar-fixed-top">
@@ -206,6 +235,8 @@
 
                                 </tbody>
                             </table>
+
+                            <a id="last" href="#">上一页</a> <a id="more" href="#">下一页</a>
                         </div>
                     </div>
                 </div>

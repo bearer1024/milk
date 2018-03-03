@@ -47,8 +47,15 @@ public class RegistCertificateController {
 	    if(currentPageNo==null){
             currentPageNo = 1;
         }
-        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(currentPageNo);
+        int count = registerCertificateManager.count();
+
+	    logger.info("currentPage:"+currentPageNo);
+        Page page = new Page(currentPageNo, count, 20);
+        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(page);
         mm.put("list", registCertificates);
+        mm.put("totalPage", page.getTotalPageCount());
+        mm.put("currentPage", page.getCurrentPageNo());
+
         return "/list_register";
     }
 
@@ -56,7 +63,10 @@ public class RegistCertificateController {
     @RequestMapping("edit-certificate")
     public String editCertificate(RegistCertificate registCertificate, ModelMap mm){
         registerCertificateManager.update(registCertificate);
-        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(1);
+        int count = registerCertificateManager.count();
+
+        Page page = new Page(1, count, 20);
+        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(page);
         mm.put("list", registCertificates);
         return "/list_register";
     }
@@ -64,7 +74,10 @@ public class RegistCertificateController {
     @RequestMapping("delete-certificate")
     public String deleteCertificate(int id, ModelMap mm){
         registerCertificateManager.delete(id);
-        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(1);
+
+        int count = registerCertificateManager.count();
+        Page page = new Page(1, count, 20);
+        List<RegistCertificate> registCertificates = registerCertificateManager.selectList(page);
         mm.put("list", registCertificates);
         return "/list_register";
     }
