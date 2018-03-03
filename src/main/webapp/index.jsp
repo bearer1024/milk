@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>搜索</title>
-    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
 </head>
@@ -28,7 +28,7 @@
             <button type="submit"></button>
         </form>
     </div>
-    <div class="search bar2">
+    <div class="search bar2" id="news_info">
         <a href="#">最新获得资质企业</a>    <a href="#">奶粉行业新闻</a>  <a href="#">投票排行</a>
     </div>
 </div>
