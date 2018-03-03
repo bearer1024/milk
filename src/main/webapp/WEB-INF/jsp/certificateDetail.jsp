@@ -14,7 +14,7 @@
             margin:0;
         }
         .wrap {
-            width:300px;
+            width:500px;
             margin:20px auto 0;
         }
         table {
@@ -43,10 +43,6 @@
 <div class="wrap">
     <table>
         <tbody id="j_tb">
-        <tr>
-            <td>产品详情：</td>
-        </tr>
-
         <tr>
             <td>产品名称：${result.product_name}</td>
         </tr>

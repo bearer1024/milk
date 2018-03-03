@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!doctype html>
 <html>
 <head>
@@ -14,7 +13,7 @@
             margin:0;
         }
         .wrap {
-            width:300px;
+            width:500px;
             margin:20px auto 0;
         }
         table {
@@ -32,23 +31,30 @@
         }
         tbody tr {
             background-color:#f0f0f0;
+            padding: 20px;
         }
         tbody tr:hover {
             cursor:pointer;
             background-color:#fafafa;
+        }
+        #resutl {
+            font-size: 20px;
+            color: red;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
 <div class="wrap">
     <table>
+        <div id="resutl">
+            根据产品名称查询结果：
+        </div>
         <tbody id="j_tb">
-        <tr>
-            <td>根据产品名称查询结果：</td>
-        </tr>
+
         <c:forEach items="${resultList}" var="ss">
             <tr>
-                <td>产品名称：<a href="/api/productDetail?id=${ss.id}">${ss.product_name}</a></td>
+                <td><a href="/api/productDetail?id=${ss.id}">${ss.product_name} 认证通过的编码为 ${ss.application_number}</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -82,4 +88,5 @@
 </div>
 </body>
 </html>
+
 
