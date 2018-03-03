@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,8 @@
         }
 
         body {
+            width: 100%;
+            margin: 10px auto;
             margin: 0;
             padding: 0;
             background: #FFF;
@@ -34,13 +37,14 @@
             margin: 100px auto;
         }
         #naifen {
-            width: 250px;
+            width: 500px;
             margin: 10px auto;
-            padding: 10px;
+            padding: 20px;
             font-size: 40px;
-            color: #FF6666
+            color: #FF6666;
+            text-align:center;
         }
-        div.search {padding: 30px 0;}
+        div.search {padding: 25px 0;}
 
         form {
             position: relative;
@@ -55,13 +59,13 @@
 
         input {
             width: 100%;
-            height: 42px;
+            height: 55px;
             padding-left: 13px;
         }
 
         button {
-            height: 42px;
-            width: 42px;
+            height: 55px;
+            width: 70px;
             cursor: pointer;
             position: absolute;
         }
@@ -86,19 +90,27 @@
             font-size: 16px;
             color: #F9F0DA;
         }
+        .bar2 {
+
+        }
     </style>
 </head>
 <body>
-<div id="naifen">奶粉数据网</div>
+<div id="naifen" text->奶粉大数据网</div>
 <div id="container">
 
     <div class="search bar1">
         <form action="/api/search" method="post">
-            <input type="text" name="keyword" placeholder="查询奶粉资质，新闻等...">
+            <input type="text" name="keyword" placeholder="权威查询奶粉资质，新闻等...">
             <button type="submit"></button>
         </form>
     </div>
+    <div class="search bar2">
+        <a href="#">最新获得资质企业</a>    <a href="#">奶粉行业新闻</a>
+    </div>
+
 </div>
+<footer align="center">奶粉大数据，版权所有-2018</footer>
 </body>
 </html>
 

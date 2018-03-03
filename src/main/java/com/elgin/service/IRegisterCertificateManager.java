@@ -8,9 +8,12 @@ public interface IRegisterCertificateManager {
 
     int add(RegistCertificate registCertificate);
 
+    int update(RegistCertificate registCertificate);
+
     List<RegistCertificate> search(String keyword);
 
     List<RegistCertificate> selectList(int currentPageNo);
 
     RegistCertificate getDetailById(int id);
+    int delete(int id);
 }

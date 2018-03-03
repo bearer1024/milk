@@ -15,6 +15,7 @@ public interface RegistCertificateDao {
     int add(RegistCertificate registCertificate);
 
     int delete(Integer id);
+
     int count();
 
     int update(RegistCertificate registCertificate);
@@ -24,5 +25,5 @@ public interface RegistCertificateDao {
     List<RegistCertificate> getListByKeyWord(String keyword);
     List<RegistCertificate> getList(Page page);
 
-    Page queryCertificateForPage(int pageNo,int pageSize);
+//    Page queryCertificateForPage(int pageNo,int pageSize);
 }

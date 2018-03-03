@@ -26,6 +26,11 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 	}
 
 	@Override
+	public int update(RegistCertificate registCertificate) {
+		 return registCertificateDao.update(registCertificate);
+	}
+
+	@Override
 	public List<RegistCertificate> search(String keyword) {
 		List<RegistCertificate> list = registCertificateDao.getListByKeyWord(keyword);
 
@@ -46,6 +51,11 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
 	public RegistCertificate getDetailById(int id) {
 		return registCertificateDao.get(id);
 	}
+
+    @Override
+    public int delete(int id) {
+        return registCertificateDao.delete(id);
+    }
 
 
 }

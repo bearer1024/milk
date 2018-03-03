@@ -134,6 +134,7 @@
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li class="active">
+                            <a href="registCertificate/list-register"><i class="icon-chevron-right"></i>奶粉资质列表</a>
                             <a href="addMilkRegInfo.jsp"><i class="icon-chevron-right"></i>增加奶粉资质管理页面</a>
                         </li>
                     </ul>
@@ -155,32 +156,32 @@
                                         <div class="control-group">
                                           <label class="control-label">受理编号</label>
                                           <div class="controls">
-                                            <input class="input-xlarge focused" name="applicationNumber" type="text">
+                                            <input class="input-xlarge focused" name="application_number" type="text">
                                           </div>
                                         </div>
                                           <div class="control-group">
                                               <label class="control-label">产品名称</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="productName" type="text">
+                                                  <input class="input-xlarge focused" name="product_name" type="text">
                                               </div>
                                           </div>
 
                                           <div class="control-group">
                                               <label class="control-label">奶粉段位</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="powderLevel" type="number">
+                                                  <input class="input-xlarge focused" name="powder_level" type="number">
                                               </div>
                                           </div>
                                           <div class="control-group">
                                               <label class="control-label">申请人姓名</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="applicantName" type="text">
+                                                  <input class="input-xlarge focused" name="applicant_name" type="text">
                                               </div>
                                           </div>
                                           <div class="control-group">
                                               <label class="control-label">公布证书待领信息的时间</label>
                                               <div class="controls">
-                                                  <input class="input-xlarge focused" name="publishCertificateTime" type="datetime-local">
+                                                  <input class="input-xlarge focused" name="publish_certificate_time" type="datetime-local">
                                               </div>
                                           </div>
 

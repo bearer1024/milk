@@ -61,4 +61,16 @@ public class RegistCertificate {
     public void setPublish_certificate_time(String publish_certificate_time) {
         this.publish_certificate_time = publish_certificate_time;
     }
+
+    @Override
+    public String toString() {
+        return "RegistCertificate{" +
+                "id=" + id +
+                ", application_number='" + application_number + '\'' +
+                ", product_name='" + product_name + '\'' +
+                ", powder_level='" + powder_level + '\'' +
+                ", applicant_name='" + applicant_name + '\'' +
+                ", publish_certificate_time='" + publish_certificate_time + '\'' +
+                '}';
+    }
 }

@@ -6,18 +6,48 @@
 <html>
 
 <head>
-    <title>编辑奶粉资质信息页面</title>
+    <title>奶粉资质信息页面</title>
     <meta charset="utf-8">
     <!-- Bootstrap -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="../assets/styles.css" rel="stylesheet" media="screen">
-    <script language="javascript" type="text/javascript" src="../vendors/flot/excanvas.min.js"></script>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="../../assets/styles.css" rel="stylesheet" media="screen">
+    <script language="javascript" type="text/javascript" src="../../vendors/flot/excanvas.min.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../../vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        .wrap {
+            width:300px;
+            margin:20px auto 0;
+        }
+        table {
+            border-collapse:collapse;
+            border-spacing:0;
+
+            width:80%;
+        }
+        td {
+            background-color:#DDF0ED;
+            border-bottom:1px solid #d0d0d0;
+            color:#404060;
+            padding:10px;
+            font:14px "微软雅黑";
+        }
+        tbody tr {
+            background-color:#f0f0f0;
+        }
+        tbody tr:hover {
+            cursor:pointer;
+            background-color:#fafafa;
+        }
+    </style>
 </head>
 
 <div class="navbar navbar-fixed-top">
@@ -135,8 +165,8 @@
         <div class="span3" id="sidebar">
             <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                 <li class="active">
-                    <a href="registCertificate/list-register"><i class="icon-chevron-right"></i>奶粉资质列表</a>
-                    <a href="addMilkRegInfo.jsp"><i class="icon-chevron-right"></i>增加奶粉资质</a>
+                    <a href="javascript:void(0)" onclick="location.reload()"><i class="icon-chevron-right"></i>奶粉资质列表</a>
+                    <a href="/admin/addMilkRegInfo.jsp"><i class="icon-chevron-right"></i>增加奶粉资质</a>
                 </li>
             </ul>
         </div>
@@ -147,58 +177,35 @@
                 <!-- block -->
                 <div class="block">
                     <div class="navbar navbar-inner block-header">
-                        <div class="muted pull-left">修改奶粉资质信息</div>
+                        <div class="muted pull-left">奶粉资质信息</div>
                     </div>
                     <div class="block-content collapse in">
                         <div class="span12">
-                            <form class="form-horizontal" action="registCertificate/edit-certificate" method="post">
-                                <fieldset>
-                                    <legend>修改奶粉资质信息</legend>
-                                    <div class="control-group">
-                                        <label class="control-label">受理编号</label>
-                                        <div class="controls">
-                                            <input class="input-xlarge focused" name="application_number" type="text" value="<%=request.getParameter("applicationNumber")%>">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">产品名称</label>
-                                        <%
-                                            String productName = new String(request.getParameter("productName").getBytes("ISO-8859-1"),"UTF-8");
-                                            String applicantName = new String(request.getParameter("applicantName").getBytes("ISO-8859-1"),"UTF-8");
-                                        %>
-                                        <div class="controls">
-                                            <input class="input-xlarge focused" name="product_name" type="text" value="<%=productName %>">
-                                        </div>
-                                    </div>
+                            <table>
+                                <tbody id="j_tb">
+                                <tr>
+                                    <td>产品名称</td>
+                                    <td>申请编码</td>
+                                    <td>奶粉段位</td>
+                                    <td>申请人姓名</td>
+                                    <td>资质申请时间</td>
+                                    <td>操作</td>
+                                    <td>操作</td>
+                                </tr>
+                                <c:forEach items="${list}" var="ss">
+                                    <tr>
+                                        <td>${ss.product_name}</td>
+                                        <td>${ss.application_number}</td>
+                                        <td>${ss.powder_level}</td>
+                                        <td>${ss.applicant_name}</td>
+                                        <td>${ss.publish_certificate_time}</td>
+                                        <td><a href="/admin/editMilkRegInfo.jsp?id=${ss.id}&productName=${ss.product_name}&applicationNumber=${ss.application_number}&level=${ss.powder_level}&applicantName=${ss.applicant_name}&publish_certificate_time=${ss.publish_certificate_time}">编辑</a></td>
+                                        <td><a href="javascript:if(confirm('确实要删除吗?'))location='/admin/registCertificate/delete-certificate?id=${ss.id}'">删除</a></td>
+                                    </tr>
+                                </c:forEach>
 
-                                    <div class="control-group">
-                                        <label class="control-label">奶粉段位</label>
-                                        <div class="controls">
-                                            <input class="input-xlarge focused" name="powder_level" type="number" value="<%=request.getParameter("level")%>">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">申请人姓名</label>
-                                        <div class="controls">
-                                            <input class="input-xlarge focused" name="applicant_name" type="text" value="<%=applicantName%>">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">公布证书待领信息的时间</label>
-                                        <div class="controls">
-                                            <input class="input-xlarge focused" name="publish_certificate_time" value="<%=request.getParameter("publish_certificate_time")%>">
-                                        </div>
-                                    </div>
-
-                                    <input name="id" type="hidden" value="<%=request.getParameter("id")%>">
-
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn btn-primary">提交</button>
-                                        <button type="reset" class="btn">取消</button>
-                                    </div>
-                                </fieldset>
-                            </form>
-
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

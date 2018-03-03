@@ -7,17 +7,17 @@
     <!-- 新增一条记录 -->
     <insert id="add" parameterType="RegistCertificate">
       insert into register_certificate(application_number,product_name,powder_level,applicant_name,publish_certificate_time)
-      values(#{applicationNumber},#{productName},#{powderLevel},#{applicantName},#{publishCertificateTime})
+      values(#{application_number},#{product_name},#{powder_level},#{applicant_name},#{publish_certificate_time})
     </insert>
     
     <!-- 删除一条记录 -->
     <delete id="delete" parameterType="Integer">
-      delete from t_user where id = #{id}
+      delete from register_certificate where id = #{id}
     </delete>
     
     <!-- 更新一条记录的数据 -->
     <update id="update" parameterType="RegistCertificate">
-      update t_user set username=#{username},password=#{password},email=#{email},phone=#{phone} where id=#{id}
+      update register_certificate set application_number=#{application_number},product_name=#{product_name},powder_level=#{powder_level},applicant_name=#{applicant_name},publish_certificate_time=#{publish_certificate_time} where id=#{id}
     </update>
     
     <!-- 查询单条记录 -->
