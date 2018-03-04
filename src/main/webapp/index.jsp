@@ -13,9 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>搜索</title>
-    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
 </head>
 <body>
@@ -26,7 +25,7 @@
     <div class="search bar1">
         <form action="/api/search" method="post">
             <input type="text" name="keyword" placeholder="权威查询奶粉资质,新闻...">
-            <button type="submit"></button>
+            <button type="submit">搜索</button>
         </form>
     </div>
     <div class="search bar2" id="news_info">
