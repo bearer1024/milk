@@ -4,7 +4,7 @@
 
 body {
     width: 100%;
-    height:1000px;
+    height:1600px;
     margin: 10px auto;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
 
 #whole {
     width:100%;
-    height:580px;
+    height:100%;
 }
 #header {
     height:10%;
@@ -24,9 +24,9 @@ body {
 #container {
     width: 85%;
     height: 70%;
-    margin: 100px auto;
+    margin: 1% auto;
 }
-footer {
+#footer {
     height:5%;
 }
 
@@ -84,19 +84,70 @@ button {
 }
 
 #search_bar{
-    height:30%;
+    height:20%;
 }
 
 #brand_pic{
-    height:40%;
+    height:20%;
     background:url("../images/brand_search.jpg");
+    background-size:100% 100%;
+    padding:0;
+}
+
+.div-table {
+    display: block;
+    width: 100%;
+    height:55%;
+/*    background-color: #eee;
+    border: 1px solid #666666;
+    border-spacing: 5px; !* cellspacing:poor IE support for  this *!*/
+}
+
+.div-table-row {
+    display: block;
+    width: 100%;
+    height:33%;
+    clear: both;
+}
+
+/*.div-table-col {
+    float: left;
+    display: block;
+    width: 200px;
+}*/
+.div-table-col-left{
+    float:left;
+    display:block;
+    width:10%;
+    text-align-all:center;
+}
+
+.div-table-col-mid{
+    float:left;
+    display:block;
+    margin:auto;
+    width:20%;
+}
+
+.div-table-col-right{
+    float:left;
+    display:block;
+    width:70%;
+    height:100%;
+    background:url("../images/top1.jpg");
+    background-size:100% 100%;
+    padding:0;
+}
+
+.bg-pic{
+    background:url("../images/top1.jpg");
     background-size:100% 100%;
     padding:0;
 }
 
 #news_info{
     text-align:center;
-    height:15%;
+    height:5%;
 }
 
 #hot_keywords{
@@ -108,3 +159,4 @@ button {
 .footer{
     text-align: center;
 }
+
