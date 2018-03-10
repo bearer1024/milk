@@ -2,18 +2,22 @@ package com.elgin.controller;
 
 import com.elgin.entities.RegistCertificate;
 import com.elgin.service.IRegisterCertificateManager;
-import com.elgin.utils.GridJsonResult;
-import com.elgin.utils.JsonResult;
-import com.elgin.utils.JsonResultUtil;
 import com.elgin.utils.Page;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Controller
@@ -82,6 +86,65 @@ public class RegistCertificateController {
         return "/list_register";
     }
 
+    @RequestMapping(value="uploadMilkInfo",method= RequestMethod.POST)
+    public String uploadMilkInfo(@RequestParam("file") MultipartFile file, HttpServletRequest request){
+	    String result = "";
+	    String currentProjectPath = request.getSession().getServletContext().getRealPath(File.separator);
+	    String saveFileDirectoryPath = currentProjectPath+"excels";
+
+	    try {
+            InputStream inputStream = null;
+            File saveDirectory = new File(saveFileDirectoryPath);
+            if(!saveDirectory.exists()){
+                saveDirectory.mkdirs();
+            }
+
+            String fileName = file.getOriginalFilename();
+            inputStream = file.getInputStream();
+            File remoteFile = new File(saveDirectory, fileName);
+            file.transferTo(remoteFile);
+            String remotePath = saveDirectory+File.separator+fileName;
+            logger.info("file uploaded successfully, remotePath is: "+remotePath);
+            result = "do something to get info from excels";//TODO
+            inputStream.close();
+            //remoteFile.delete();
+            return "/list_register";
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "/list_register";
+    }
+
+/*    @RequestMapping(value="uploadMilkInfo",method= RequestMethod.POST)
+    public String uploadMilkInfo( HttpServletRequest request){
+        System.out.print("hello");
+        String result = "";
+        *//*String currentProjectPath = request.getSession().getServletContext().getRealPath("/");*//*
+        String currentProjectPath = request.getSession().getServletContext().getRealPath(File.separator);
+        String saveFileDirectoryPath = currentProjectPath+"excels";
+
+        try {
+            InputStream inputStream = null;
+            File saveDirectory = new File(saveFileDirectoryPath);
+            if(!saveDirectory.exists()){
+                saveDirectory.mkdirs();
+            }
+
+
+
+            result = "do something to get info from excels";//TODO
+            inputStream.close();
+            //remoteFile.delete();
+            return "error";
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "hello";
+    }*/
 
 
 
