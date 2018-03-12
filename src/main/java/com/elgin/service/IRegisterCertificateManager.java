@@ -19,4 +19,6 @@ public interface IRegisterCertificateManager {
     int delete(int id);
 
     int count();
+
+    String readFileToImportMilkInfo(String filePath);
 }

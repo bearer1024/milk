@@ -10,6 +10,7 @@ import com.elgin.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +60,13 @@ public class RegisterCertificateManager implements IRegisterCertificateManager{
     public int count() {
         return registCertificateDao.count();
     }
+
+    @Override
+	public String readFileToImportMilkInfo(String filePath){
+		File file = new File(filePath);
+
+		return null;
+	}
 
 
 }
