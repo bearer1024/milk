@@ -215,9 +215,8 @@
                                 <tr>
                                     <td>产品名称</td>
                                     <td>申请编码</td>
-                                    <td>奶粉段位</td>
-                                    <td>申请人姓名</td>
-                                    <td>资质申请时间</td>
+                                    <td>企业名称</td>
+                                    <td>证书有效期限</td>
                                     <td>操作</td>
                                     <td>操作</td>
                                 </tr>
@@ -225,10 +224,9 @@
                                     <tr>
                                         <td>${ss.product_name}</td>
                                         <td>${ss.application_number}</td>
-                                        <td>${ss.powder_level}</td>
                                         <td>${ss.applicant_name}</td>
-                                        <td>${ss.publish_certificate_time}</td>
-                                        <td><a href="/admin/editMilkRegInfo.jsp?id=${ss.id}&productName=${ss.product_name}&applicationNumber=${ss.application_number}&level=${ss.powder_level}&applicantName=${ss.applicant_name}&publish_certificate_time=${ss.publish_certificate_time}">编辑</a></td>
+                                        <td>${ss.certificate_expire_date}</td>
+                                        <td><a href="/admin/editMilkRegInfo.jsp?id=${ss.id}&productName=${ss.product_name}&applicationNumber=${ss.application_number}&applicantName=${ss.applicant_name}&certificate_expire_date=${ss.certificate_expire_date}">编辑</a></td>
                                         <td><a href="javascript:if(confirm('确实要删除吗?'))location='/admin/registCertificate/delete-certificate?id=${ss.id}'">删除</a></td>
                                     </tr>
                                 </c:forEach>

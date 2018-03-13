@@ -32,7 +32,7 @@ public class RegistCertificateController {
 	public void addPage(RegistCertificate registCertificate, HttpServletResponse response) {
 		logger.info("add page..." + registCertificate.toString());
         try {
-            registCertificate.setPublish_certificate_time(registCertificate.getPublish_certificate_time().replace("T"," "));
+            registCertificate.setCertificate_expire_date(registCertificate.getCertificate_expire_date().replace("T"," "));
             int add = registerCertificateManager.add(registCertificate);
             if (add > 0) {
                 logger.info("插入成功");

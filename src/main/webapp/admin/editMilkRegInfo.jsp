@@ -171,22 +171,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="control-group">
+                                   <%-- <div class="control-group">
                                         <label class="control-label">奶粉段位</label>
                                         <div class="controls">
                                             <input class="input-xlarge focused" name="powder_level" type="number" value="<%=request.getParameter("level")%>">
                                         </div>
-                                    </div>
+                                    </div>--%>
                                     <div class="control-group">
-                                        <label class="control-label">申请人姓名</label>
+                                        <label class="control-label">企业名称</label>
                                         <div class="controls">
                                             <input class="input-xlarge focused" name="applicant_name" type="text" value="<%=applicantName%>">
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">公布证书待领信息的时间</label>
+                                        <label class="control-label">证书有效期限</label>
                                         <div class="controls">
-                                            <input class="input-xlarge focused" name="publish_certificate_time" value="<%=request.getParameter("publish_certificate_time")%>">
+                                            <input class="input-xlarge focused" name="certificate_expire_date" value="<%=request.getParameter("certificate_expire_date")%>">
                                         </div>
                                     </div>
 

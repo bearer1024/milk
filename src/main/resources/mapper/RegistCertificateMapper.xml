@@ -6,8 +6,8 @@
     
     <!-- 新增一条记录 -->
     <insert id="add" parameterType="RegistCertificate">
-      insert into register_certificate(application_number,product_name,powder_level,applicant_name,publish_certificate_time)
-      values(#{application_number},#{product_name},#{powder_level},#{applicant_name},#{publish_certificate_time})
+      insert into register_certificate(application_number,product_name,applicant_name,certificate_expire_date)
+      values(#{application_number},#{product_name},#{applicant_name},#{certificate_expire_date})
     </insert>
     
     <!-- 删除一条记录 -->
@@ -17,7 +17,7 @@
     
     <!-- 更新一条记录的数据 -->
     <update id="update" parameterType="RegistCertificate">
-      update register_certificate set application_number=#{application_number},product_name=#{product_name},powder_level=#{powder_level},applicant_name=#{applicant_name},publish_certificate_time=#{publish_certificate_time} where id=#{id}
+      update register_certificate set application_number=#{application_number},product_name=#{product_name},powder_level=#{powder_level},applicant_name=#{applicant_name},certificate_expire_date=#{certificate_expire_date} where id=#{id}
     </update>
     
     <!-- 查询单条记录 -->

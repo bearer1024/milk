@@ -56,7 +56,7 @@
             <td>申请人名称：${result.applicant_name}</td>
         </tr>
         <tr>
-            <td>公布证书待领信息的时间：${result.publish_certificate_time}</td>
+            <td>公布证书待领信息的时间：${result.certificate_expire_date}</td>
         </tr>
         </tbody>
     </table>
