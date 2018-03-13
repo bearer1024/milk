@@ -5,6 +5,7 @@ import com.elgin.service.IRegisterCertificateManager;
 import com.elgin.utils.Page;
 import com.elgin.utils.SheetManager;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -103,7 +104,8 @@ public class RegistCertificateController {
             file.transferTo(remoteFile);
             String remotePath = saveDirectory+File.separator+fileName;
             logger.info("file uploaded successfully, remotePath is: "+remotePath);
-            SheetManager.readExcel(remoteFile);
+            SheetManager sheetManager = new SheetManager();
+            sheetManager.readExcel(remoteFile);
             result = "do something to get info from excels";//TODO
             //inputStream.close();
             //remoteFile.delete();
