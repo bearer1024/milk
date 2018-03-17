@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -105,7 +107,8 @@ public class RegistCertificateController {
             String remotePath = saveDirectory+File.separator+fileName;
             logger.info("file uploaded successfully, remotePath is: "+remotePath);
             SheetManager sheetManager = new SheetManager();
-            sheetManager.readExcel(remoteFile);
+            ArrayList<HashMap<String,Object>> hashMapArraylist = sheetManager.readExcel(remoteFile);
+            
             result = "do something to get info from excels";//TODO
             //inputStream.close();
             //remoteFile.delete();
