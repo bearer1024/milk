@@ -1,5 +1,6 @@
 package com.elgin.utils;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.*;
@@ -7,13 +8,12 @@ import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 public class SheetManager {
     private final int FIRST_ROW_NO = 3;
-    private final int FIRST_COLUMN_NO =1;
     private final int FIRST_SHEET_NO = 0;
+    private Logger logger=Logger.getLogger(this.getClass());
 
     public ArrayList<HashMap<String,Object>> readExcel(File remoteFile){
         try {
@@ -23,10 +23,11 @@ public class SheetManager {
             XSSFFormulaEvaluator xssfFormulaEvaluator = new XSSFFormulaEvaluator(xssfWorkbook);
             String cellString = null;
             ArrayList<HashMap<String,Object>> hashMapArrayList = new ArrayList<HashMap<String, Object>>();
-            HashMap<String,Object> hashMap = new HashMap<String, Object>();
+
             for(int i=FIRST_SHEET_NO;i<xssfWorkbook.getNumberOfSheets();i++){
                 Sheet sheet = xssfWorkbook.getSheetAt(i);
                 for (int rowNum = FIRST_ROW_NO; rowNum <= sheet.getLastRowNum(); rowNum++) {
+                    HashMap<String,Object> hashMap = new HashMap<String, Object>();
                     Row row = sheet.getRow(rowNum);
                     if (row == null) {
                         // This whole row is empty
@@ -39,37 +40,17 @@ public class SheetManager {
                     hashMap.put("applicantion_number",row.getCell(3).getStringCellValue());
                     hashMap.put("certificate_expire_date",row.getCell(4).getDateCellValue().getTime());
                     hashMapArrayList.add(hashMap);
-                    return hashMapArrayList;
-                    /*for (int colNum = FIRST_COLUMN_NO; colNum < row.getLastCellNum(); colNum++) {
-                        //CellReference cellReference = new CellReference(rowNum,colNum);
-                        Cell cell = row.getCell(colNum);
-                        switch (cell.getCellTypeEnum()){
-                            case NUMERIC:
-                                Date date = cell.getDateCellValue();
-                                Long timeLong = date.getTime();
-                                System.out.println("date.getTime() is:"+timeLong);
-                                System.out.println("------------------application_number,product_name,applicant_name,certificate_expire_date------------------------------------------------------");
-                                hashMap.put("certificate_expire_date",timeLong);
-                                //System.out.println("cell.getDateCellValue():"+cell.getDateCellValue());
-                            break;
-                            case STRING:
-                                cellString = dataFormatter.formatCellValue(cell);
-                                System.out.println("cellString is :"+cellString);
-                                break;
-
-                            default:
-                                continue;
-                        }
-
-                    }*/
                 }
 
             }
             pkg.close();
+            return hashMapArrayList;
         } catch (InvalidFormatException e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info(e.getMessage());
+        } catch (Exception e){
+            logger.info(e.getMessage());
         }
         return null;
     }

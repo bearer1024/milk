@@ -90,27 +90,24 @@ public class RegistCertificateController {
 
     @RequestMapping(value="uploadMilkInfo",method= RequestMethod.POST)
     public String uploadMilkInfo(@RequestParam("file") MultipartFile file, HttpServletRequest request){
-	    String result = "";
 	    String currentProjectPath = request.getSession().getServletContext().getRealPath(File.separator);
 	    String saveFileDirectoryPath = currentProjectPath+"excels";
 	    try {
-
             File saveDirectory = new File(saveFileDirectoryPath);
             if(!saveDirectory.exists()){
                 saveDirectory.mkdirs();
             }
-
             String fileName = file.getOriginalFilename();
-            //InputStream inputStream = file.getInputStream();
             File remoteFile = new File(saveDirectory, fileName);
             file.transferTo(remoteFile);
             String remotePath = saveDirectory+File.separator+fileName;
             logger.info("file uploaded successfully, remotePath is: "+remotePath);
             SheetManager sheetManager = new SheetManager();
             ArrayList<HashMap<String,Object>> hashMapArraylist = sheetManager.readExcel(remoteFile);
-            
-            result = "do something to get info from excels";//TODO
-            //inputStream.close();
+            boolean result = registerCertificateManager.addToDatabase(hashMapArraylist);
+            if(result){
+                logger.info("import milk info successfully!");
+            }
             //remoteFile.delete();
             return "/list_register";
 
@@ -120,5 +117,7 @@ public class RegistCertificateController {
 
         return "/list_register";
     }
+
+
 
 }

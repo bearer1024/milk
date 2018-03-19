@@ -3,6 +3,8 @@ package com.elgin.service;
 import com.elgin.entities.RegistCertificate;
 import com.elgin.utils.Page;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public interface IRegisterCertificateManager {
@@ -21,4 +23,6 @@ public interface IRegisterCertificateManager {
     int count();
 
     String readFileToImportMilkInfo(String filePath);
+
+    boolean addToDatabase(ArrayList<HashMap<String, Object>> hashMapArrayList);
 }
